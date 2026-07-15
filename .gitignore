@@ -1,0 +1,5 @@
+# Never commit a real, unsanitized log. Keep the format, not the data.
+*.local.jsonl
+llm_local_sizing_log.jsonl
+llm_local_feasibility_log.jsonl
+__pycache__/
