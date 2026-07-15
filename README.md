@@ -61,6 +61,14 @@ or personal data is included, here or anywhere in this repo.
 | **coding** | ~30–32B | 30B coder **passed** a graded test oracle (matched the hosted mid-tier) | **Feasible** — delegates well to a local ~30B; estimate ~accurate |
 | **prose** | logged ~32B | 32B *and* 70B **failed** (intrinsic fabrication) | **Not feasible** at any local size; estimate was optimistic |
 
+The `verified` outcomes above came from two objective oracles (the ground truth that turns a
+self-graded guess into a measurement — see `CALIBRATION.md` step 3):
+[**local-coder-bench**](https://github.com/afluffywaffle/local-coder-bench) (graded test
+suite for the coding runs) and
+[**llm-prose-parity**](https://github.com/afluffywaffle/llm-prose-parity) (canon-fidelity /
+blind-review harness for the prose runs). Build or reuse a similar oracle per domain so your
+own `verified` field is objective too.
+
 The domain split is the whole point: a *verifiable* domain (coding) delegated cheaply and the
 estimate held up; a *grounded-generation* domain (prose) was over-estimated because
 fabrication doesn't show in a self-graded look. **Your domains and your numbers will differ —
