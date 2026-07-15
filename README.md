@@ -29,6 +29,7 @@ estimating cheaply and apply the correction.
 | `template.jsonl` | Schema line + synthetic example rows | No — neutral |
 | `analyze.py` | Aggregate by domain; `--calibrate` computes your estimator's bias | No — neutral |
 | `BOOTSTRAP.md` | Meta-prompt: your agent writes *its own* logger for *your* harness | Generator |
+| `WORKFLOW.md` | Example: tie the log append to a wrap-up ritual (handoff/commit) so it never gets skipped | Pattern |
 | `CALIBRATION.md` | Protocol to derive *your* estimator's bias correction | Generator |
 | `privacy_scan.py` | Flag likely PII / secrets before you push | No — neutral |
 | `claude-code/` | Reference logging instruction for Claude Code | Yes — example |
@@ -37,7 +38,9 @@ estimating cheaply and apply the correction.
 
 1. **Bootstrap the logger.** Paste `BOOTSTRAP.md` into your own agent → it emits the
    persistent per-session instruction in *your* harness's form (system prompt / hook /
-   `CLAUDE.md` / wrapper). See `claude-code/` for a worked example.
+   `CLAUDE.md` / wrapper). See `claude-code/` for a worked example, and `WORKFLOW.md` for the
+   key reliability trick: tie the append to a wrap-up ritual you already do (handoff / commit)
+   so it never gets skipped.
 2. **Let rows accrue.** Each real working session appends one line.
 3. **Run oracles.** Periodically send a session's delegatable chunk to a real small model
    (Ollama / OpenRouter / local) and fill the `verified` field with the outcome.
